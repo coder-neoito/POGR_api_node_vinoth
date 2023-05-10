@@ -41,6 +41,17 @@ class UserController {
 			res.status(500).json({ message: error.message });
 		}
 	};
+
+	getUserAchivements = async (req, res) => {
+		const userId = req.params.userId;
+		const gameId = req.params.gameId;
+		try {
+			const getGameAchivements=await gameService.getUserGameAchivements(userId,gameId);
+			res.status(200).json({ data: getGameAchivements });
+		} catch (error) {
+			res.status(500).json({ message: error.message });
+		}
+	};
 }
 
 export default UserController;

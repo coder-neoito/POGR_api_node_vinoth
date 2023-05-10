@@ -1,7 +1,7 @@
-import { getUserById } from "../dataAccess/userData.js";
+import {getUsers, getUserById } from "../dataAccess/userData.js";
 class UserService {
 	getUsers = async () => {
-		const user = await getUser();
+		const user = await getUsers();
 		return user;
 	};
 	getUserById = async (id) => {

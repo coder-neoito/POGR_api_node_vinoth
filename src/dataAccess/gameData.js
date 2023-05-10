@@ -1,15 +1,12 @@
 import exppress from "express";
-import Game from "../models/game.js";
+import UserGame from "../models/userGame.js";
 
-const getGames = async (filter) => {
-	const fetchGame = await Game.find();
-	return fetchGame;
-};
+
 
 const getUsersGames = async (args,populateArgs) => {
   
-  const game = await Game.find(args).populate(populateArgs);
+  const game = await UserGame.find(args).populate(populateArgs);
 	return game;
 };
 
-export { getGames, getUsersGames };
+export { getUsersGames };

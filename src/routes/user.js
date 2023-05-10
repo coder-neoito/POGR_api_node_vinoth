@@ -5,9 +5,10 @@ import userMiddleware from "../middleware/userMiddleware.js";
 const userRouter = exppress.Router();
 const userController = new UserController();
 
-userRouter.get("/", userMiddleware, userController.getUsers);
+userRouter.get("/", userController.getUsers);
 userRouter.get("/:userId",userMiddleware, userController.getUser);
 userRouter.get("/:userId/games", userMiddleware, userController.getUserGames);
+userRouter.get("/:userId/games/:gameId/achivements", userMiddleware, userController.getUserAchivements);
 userRouter.get("/:userId/games/:gameId/profile",userMiddleware, userController.getUserGamesProfile);
 
 export default userRouter;
